@@ -1,0 +1,27 @@
+<h1>Create a New Figure Here!</h1>
+
+<p>Note: A figure can be associated with many titles and many landmarks. Check the applicable boxes and/or create a new one.</p>
+
+<form method="POST" action="/figures/new">
+<h3><label>Figure Name:</label></h3>
+<input id="figure_name" type="text" name="figure[name]">
+<br>
+<br>
+<h3><label>Title IDs:</label></h3>
+<% Title.all.each do |title| %>
+  <p><%= title.name %><input id="title_<%= title.id %>" name="figure[title_ids][]" type="checkbox" value="<%= title.id %>"></p>
+<% end %>
+<label>Create a New Title:</label>
+<input id="title[name]" type="text" name="new_title">
+<br>
+<br>
+<h3><label>Landmark IDs:</label></h3>
+<% Landmark.all.each do |landmark| %>
+  <p><%= landmark.name %><input id="landmark_<%= landmark.id %>" name="figure[landmark_ids][]" type="checkbox" value="<%= landmark.id %>"></p>
+<% end %>
+<label>Create a New Landmark:</label>
+<input id="landmark[name]" type="text" name="new_landmark">
+<br>
+<br>
+<input type="submit" value="Create New Figure">
+</form>

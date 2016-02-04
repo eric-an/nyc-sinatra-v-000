@@ -1,0 +1,13 @@
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+
+<h1>Figure</h1>
+
+<p>Name: <%= @figure.name %></p>
+<% @figure.titles.each do |title| %>
+  <p>Title(s): <%= title.name %></p>
+<% end %>
+<% @figure.landmarks.each do |landmark| %>
+  <p>Landmark(s): <%= landmark.name %></p>
+<% end %>
